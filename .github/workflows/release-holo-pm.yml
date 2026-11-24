@@ -1,0 +1,79 @@
+name: Release Awesome-OS holo-pm + libholo-pm
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Cross-Compile & Release (4 OS/arch via Zig)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Zig
+        uses: mlugg/setup-zig@v2
+        with:
+          version: 0.14.1
+
+      - name: Cross-compile holo-pm and libholo-pm for all 4 targets
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          CFLAGS="-std=c11 -Os -s -Wall -Wextra -Werror -Iinclude"
+
+          # 1. Windows x86_64
+          zig cc -target x86_64-windows-gnu $CFLAGS -DB8G_HOLO_PM_BUILDING_DLL -shared src/libholo_pm.c -o dist/libholo-pm-windows-x86_64.dll
+          zig cc -target x86_64-windows-gnu $CFLAGS src/libholo_pm.c src/holo_pm.c -o dist/holo-pm-windows-x86_64.exe
+
+          # 2. Linux x86_64
+          zig cc -target x86_64-linux-gnu $CFLAGS -fPIC -shared src/libholo_pm.c -ldl -o dist/libholo-pm-linux-x86_64.so
+          zig cc -target x86_64-linux-gnu $CFLAGS src/libholo_pm.c src/holo_pm.c -ldl -o dist/holo-pm-linux-x86_64
+
+          # 3. Linux aarch64
+          zig cc -target aarch64-linux-gnu $CFLAGS -fPIC -shared src/libholo_pm.c -ldl -o dist/libholo-pm-linux-aarch64.so
+          zig cc -target aarch64-linux-gnu $CFLAGS src/libholo_pm.c src/holo_pm.c -ldl -o dist/holo-pm-linux-aarch64
+
+          # 4. macOS aarch64
+          zig cc -target aarch64-macos $CFLAGS -fPIC -shared src/libholo_pm.c -o dist/libholo-pm-macos-aarch64.dylib
+          zig cc -target aarch64-macos $CFLAGS src/libholo_pm.c src/holo_pm.c -o dist/holo-pm-macos-aarch64
+
+          cp include/libholo_pm.h dist/libholo_pm.h
+          rm -f dist/*.lib dist/*.pdb
+          ls -lh dist/
+
+      - name: Run native Linux x86_64 smoke & unit tests
+        run: |
+          set -euo pipefail
+          ./dist/holo-pm-linux-x86_64 --info
+          ./dist/holo-pm-linux-x86_64 --probe ./dist/libholo-pm-linux-x86_64.so b8g_holo_pm_abi_magic
+          zig cc -target x86_64-linux-gnu -std=c11 -Os -s -Wall -Wextra -Werror -Iinclude src/libholo_pm.c src/holo_pm_test.c -ldl -o /tmp/holo_pm_test
+          /tmp/holo_pm_test ./dist/libholo-pm-linux-x86_64.so b8g_holo_pm_abi_magic
+          rm -f /tmp/holo_pm_test
+
+      - name: Generate SHA256SUMS and SHA512SUMS
+        run: |
+          set -euo pipefail
+          cd dist
+          sha256sum * > SHA256SUMS.txt
+          sha512sum * > SHA512SUMS.txt
+          cat SHA256SUMS.txt
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: holo-pm-dist
+          path: dist/*
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
