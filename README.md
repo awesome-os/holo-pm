@@ -38,3 +38,20 @@ zig cc -std=c11 -Os -s -Wall -Wextra -Werror -Iinclude src/libholo_pm.c src/holo
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+## Quick Install & Run (Windows / Linux / macOS)
+
+```powershell
+# Windows (PowerShell) — 1-line bootstrap install
+irm https://github.com/awesome-os/holo-pm/releases/latest/download/install.ps1 | iex
+```
+
+```sh
+# Linux & macOS — 1-line bootstrap install
+curl -fsSL https://github.com/awesome-os/holo-pm/releases/latest/download/install.sh | sh
+```
+
+```sh
+# Or hydrate directly via holo-pm (v11 CAS)
+holo-pm install repository://github.com/awesome-os/holo-pm@main
+```
