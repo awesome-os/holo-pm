@@ -1,0 +1,146 @@
+{
+  "schema": "holo-compiler-lockfile-v1",
+  "abiMagic": "0x33564742",
+  "casLayout": "v11",
+  "repo": "awesome-os/holo-pm",
+  "targets": [
+    "linux-arm64",
+    "linux-x64",
+    "macos-arm64"
+  ],
+  "generatedAt": "2026-11-24T23:53:02.473Z",
+  "dependencies": [
+    {
+      "id": "awesome-os/holo-pm/holo-pm-linux-aarch64",
+      "kind": "ghost-launcher",
+      "version": "v0.1.0",
+      "target": "linux-arm64",
+      "sha512": "13ed1afa66ee1cb0c1bd8ba887fadf2d70191cf735805b89f0cb72851ee4a058daece8d13c3bc4afc7226800b74ff3812b6bf202d6dbe6af7e4c8e3c65cf13ef",
+      "size": 7352,
+      "executable": true,
+      "blob": "v11/files/13/13ed1afa66ee1cb0c1bd8ba887fadf2d70191cf735805b89f0cb72851ee4a058daece8d13c3bc4afc7226800b74ff3812b6bf202d6dbe6af7e4c8e3c65cf13ef-exec",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/holo-pm-linux-aarch64",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/holo-pm-linux-x86_64",
+      "kind": "ghost-launcher",
+      "version": "v0.1.0",
+      "target": "linux-x64",
+      "sha512": "2bdad50caa4062674f32979a492c6f5a64f9aebdc8c67cddec129a80563623c2717bb87ffb69125e93b1693a5de5845db404af62412b75edd53ea78c37cd1dc8",
+      "size": 7176,
+      "executable": true,
+      "blob": "v11/files/2b/2bdad50caa4062674f32979a492c6f5a64f9aebdc8c67cddec129a80563623c2717bb87ffb69125e93b1693a5de5845db404af62412b75edd53ea78c37cd1dc8-exec",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/holo-pm-linux-x86_64",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/holo-pm-macos-aarch64",
+      "kind": "ghost-launcher",
+      "version": "v0.1.0",
+      "target": "macos-arm64",
+      "sha512": "a82696f994998f8fc02f12fd5772b65190ba408f5da06b3364a0e3284c0b7983219d90c8b40e3b5c08c584d0baa466e49a69389ebe0d76bf3710a1f252866bbc",
+      "size": 51176,
+      "executable": true,
+      "blob": "v11/files/a8/a82696f994998f8fc02f12fd5772b65190ba408f5da06b3364a0e3284c0b7983219d90c8b40e3b5c08c584d0baa466e49a69389ebe0d76bf3710a1f252866bbc-exec",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/holo-pm-macos-aarch64",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/holo-pm-windows-x86_64.exe",
+      "kind": "ghost-launcher",
+      "version": "v0.1.0",
+      "target": "linux-x64",
+      "sha512": "1dbc3ee65bd0937565031a144c96b4dab20c56b3def3795780b74ca953817a35df87e5d8768e12b4dd663c939bbc027e3122e7042b9b9e24514f648c5b85bf25",
+      "size": 20480,
+      "executable": true,
+      "blob": "v11/files/1d/1dbc3ee65bd0937565031a144c96b4dab20c56b3def3795780b74ca953817a35df87e5d8768e12b4dd663c939bbc027e3122e7042b9b9e24514f648c5b85bf25-exec",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/holo-pm-windows-x86_64.exe",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/libholo_pm.h",
+      "kind": "object",
+      "version": "v0.1.0",
+      "target": "any",
+      "sha512": "14ead66861453624c7bfb80af9167f9633e1262da97ef2823b6f11f24a98e7e3847b6b090bf04d1d8956d9aafa580bc3b547d34250decf4b1a73c1d60d27be81",
+      "size": 2080,
+      "executable": false,
+      "blob": "v11/files/14/14ead66861453624c7bfb80af9167f9633e1262da97ef2823b6f11f24a98e7e3847b6b090bf04d1d8956d9aafa580bc3b547d34250decf4b1a73c1d60d27be81",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/libholo_pm.h",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/libholo-pm-linux-aarch64.so",
+      "kind": "lib",
+      "version": "v0.1.0",
+      "target": "linux-arm64",
+      "sha512": "7e5a758a2164fc4bdc3d6451cf7e3fba4afbcd28d5417fcc2cc9e9ba11b944288bfc47f71af2465e72f1ec350cfa48faa57a21df88182830f2267798ccd245a6",
+      "size": 4384,
+      "executable": false,
+      "blob": "v11/files/7e/7e5a758a2164fc4bdc3d6451cf7e3fba4afbcd28d5417fcc2cc9e9ba11b944288bfc47f71af2465e72f1ec350cfa48faa57a21df88182830f2267798ccd245a6",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/libholo-pm-linux-aarch64.so",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/libholo-pm-linux-x86_64.so",
+      "kind": "lib",
+      "version": "v0.1.0",
+      "target": "linux-x64",
+      "sha512": "bccd4274af6d06d856af06ea71e210752bb38300ffcb1d06044143d6ef6b31929cf00338c3e9fa7fb0a34b057477e76de70dd89d8d9de49d76028949167ce73f",
+      "size": 4368,
+      "executable": false,
+      "blob": "v11/files/bc/bccd4274af6d06d856af06ea71e210752bb38300ffcb1d06044143d6ef6b31929cf00338c3e9fa7fb0a34b057477e76de70dd89d8d9de49d76028949167ce73f",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/libholo-pm-linux-x86_64.so",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/libholo-pm-macos-aarch64.dylib",
+      "kind": "lib",
+      "version": "v0.1.0",
+      "target": "macos-arm64",
+      "sha512": "f61c9df29e177010785b5c8171650eabf4532598fb6433bedf4c609d889dd7a3d60c175672c761a7fcd11e7176450289c21c664c1616fce1c317cb13f1e08839",
+      "size": 50400,
+      "executable": false,
+      "blob": "v11/files/f6/f61c9df29e177010785b5c8171650eabf4532598fb6433bedf4c609d889dd7a3d60c175672c761a7fcd11e7176450289c21c664c1616fce1c317cb13f1e08839",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/libholo-pm-macos-aarch64.dylib",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/libholo-pm-windows-x86_64.dll",
+      "kind": "lib",
+      "version": "v0.1.0",
+      "target": "linux-x64",
+      "sha512": "b198e07350b91cdaa0edf5aff6017a1b6073994c26c2398a8bb4c87269aa9c035f35f968569bce6ebc282e22b39d7ebb8d969c196127c4f8ee3d7148371c8b79",
+      "size": 16384,
+      "executable": false,
+      "blob": "v11/files/b1/b198e07350b91cdaa0edf5aff6017a1b6073994c26c2398a8bb4c87269aa9c035f35f968569bce6ebc282e22b39d7ebb8d969c196127c4f8ee3d7148371c8b79",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/libholo-pm-windows-x86_64.dll",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/SHA256SUMS.txt",
+      "kind": "object",
+      "version": "v0.1.0",
+      "target": "any",
+      "sha512": "b5fead3f1a854107af4272469d5cd8390d867459a0dc75e513c4f6307b2188b0012fa694ac6760ee72938bcef94b16e449fddefc9989a87be62985019ce16cea",
+      "size": 815,
+      "executable": false,
+      "blob": "v11/files/b5/b5fead3f1a854107af4272469d5cd8390d867459a0dc75e513c4f6307b2188b0012fa694ac6760ee72938bcef94b16e449fddefc9989a87be62985019ce16cea",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/SHA256SUMS.txt",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/holo-pm/SHA512SUMS.txt",
+      "kind": "object",
+      "version": "v0.1.0",
+      "target": "any",
+      "sha512": "1accd98218005ce37230713b2126c0a73aa8ac22ef6ee5df644554c45eec43bf3ccfe03a04bd056432ce5de398771d34b47029ef4a882e02de9441fa9272c92c",
+      "size": 1536,
+      "executable": false,
+      "blob": "v11/files/1a/1accd98218005ce37230713b2126c0a73aa8ac22ef6ee5df644554c45eec43bf3ccfe03a04bd056432ce5de398771d34b47029ef4a882e02de9441fa9272c92c",
+      "url": "https://github.com/awesome-os/holo-pm/releases/download/v0.1.0/SHA512SUMS.txt",
+      "dependencies": []
+    }
+  ]
+}
