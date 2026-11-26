@@ -1,0 +1,15 @@
+{
+  "schema": "holo-ci.v1",
+  "name": "holo-pm",
+  "kind": "control-plane",
+  "tests": [
+    "node --test bootstrap/selfhost-fixedpoint.test.mts src/holo-pm-gen-install.test.mts src/semantic-lane-splitter.test.mts"
+  ],
+  "docs": [
+    "README.md"
+  ],
+  "guards": {
+    "zeroGhost": true,
+    "zeroCasV1": true
+  }
+}
