@@ -54,6 +54,7 @@ holo-pm install -g repository://github.com/awesome-os/coreutils@main --force-def
 | [`index/cas-v11-global-manifest.json`](index/cas-v11-global-manifest.json) · [`index/SHA512SUMS.txt`](index/SHA512SUMS.txt) | Global `v11` CAS manifest and cryptographic digest ledger. |
 | [`pins/`](pins/) | Wave-1 unified dependency pins across Go ([`holo-unified-go-pins.mod`](pins/holo-unified-go-pins.mod), [`holo-unified-go.work`](pins/holo-unified-go.work)), npm ([`holo-unified-npm-overrides.json`](pins/holo-unified-npm-overrides.json)), and Rust ([`holo-unified-rust-pins.toml`](pins/holo-unified-rust-pins.toml)). |
 | [`bootstrap/selfhost-fixedpoint.mts`](bootstrap/selfhost-fixedpoint.mts) | **`CAS Q-Self` Fixed-Point Verifier** — Stage 0 -> Stage 1 -> Stage 2 proof that `sha512(Stage 1) === sha512(Stage 2)` with `deduplicated === true` (`0` extra bytes in `v11`). |
+| [`docs/STRANGLER-FIG-NPM-INTEROP.md`](docs/STRANGLER-FIG-NPM-INTEROP.md) | **Zero-Migration Strangler-Fig Hybrid Workspace Pattern** (`pnpm/pnpm#3367`) — separating central CAS hardlinks from metadata-only `npm i --package-lock-only` / `holo-ci lock-compat` lockfile projection. |
 
 ```sh
 # Run the Stage 0 -> Stage 1 -> Stage 2 CAS Q-Self fixed-point proof
