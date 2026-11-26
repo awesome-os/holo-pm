@@ -23,6 +23,7 @@ export interface V11TreeManifest {
   abiMagic: '0x33564742';
   repo: string;
   tag: string;
+  tags: string[];
   generatedAt: string;
   overridesLegacyTar: true;
   totalFiles: number;
@@ -48,7 +49,7 @@ function isExec(relPath: string): boolean {
   );
 }
 
-export function emitV11Tree(rootDir: string, repo: string, tag: string): V11TreeManifest {
+export function emitV11Tree(rootDir: string, repo: string, tag: string, tags: string[] = ['folder-structure', 'local']): V11TreeManifest {
   const absRoot = path.resolve(rootDir);
   const files: V11TreeFileEntry[] = [];
   const unique = new Set<string>();
@@ -89,6 +90,7 @@ export function emitV11Tree(rootDir: string, repo: string, tag: string): V11Tree
     abiMagic: '0x33564742',
     repo,
     tag,
+    tags,
     generatedAt: new Date().toISOString(),
     overridesLegacyTar: true,
     totalFiles: files.length,
@@ -107,8 +109,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(im
   };
   const repo = getFlag('--repo', 'awesome-os/unknown');
   const tag = getFlag('--tag', 'main');
+  const tagsRaw = getFlag('--tags', 'folder-structure,local');
+  const tags = tagsRaw.split(',').map((s) => s.trim()).filter(Boolean);
   const out = getFlag('--out', path.join(dir, 'v11-tree.json'));
-  const manifest = emitV11Tree(dir, repo, tag);
+  const manifest = emitV11Tree(dir, repo, tag, tags);
   fs.writeFileSync(out, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
   console.log(`EMITTED ${out}: ${manifest.totalFiles} files (${manifest.uniqueBlobs} unique SHA-512 blobs, ${(manifest.totalBytes / 1024).toFixed(1)} KB)`);
 }
